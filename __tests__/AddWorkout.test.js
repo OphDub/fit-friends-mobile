@@ -34,4 +34,24 @@ describe('AddWorkout Component', () => {
   it('handleInputChange should update state', () => {
 
   });
+
+  it('handleAddExercise should call exerciseCheck for form validation', () => {
+
+  });
+
+  it('addExercise should update exercises in state', () => {
+
+  });
+
+  it('removeExercise should update exercises in state', () => {
+
+  });
+
+  it('handleSubmitWorkout should call workoutCheck for form validation', () => {
+
+  });
+
+  it('submitWorkout should clear state', () => {
+
+  });
 });
