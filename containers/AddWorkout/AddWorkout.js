@@ -21,11 +21,11 @@ export default class AddWorkout extends Component {
       <View style={styles.container}>
         <Text>Add Workout</Text>
         <Text>Workout Name: </Text>
-          <TextInput></TextInput>
+          <TextInput style={styles.inputs}></TextInput>
         <Text>Description (Optional):</Text>
-          <TextInput></TextInput>
+          <TextInput style={styles.inputs}></TextInput>
         <Text>Exercises</Text>
-          <TextInput></TextInput>
+          <TextInput style={styles.inputs}></TextInput>
       </View>
     )
   }
@@ -34,9 +34,17 @@ export default class AddWorkout extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#808080',
-    margin: 20,
+    backgroundColor: '#D3D3D3',
+    marginVertical: 20,
+    marginLeft: 5,
+    marginRight: 5,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 10,
   },
+  inputs: {
+    backgroundColor: '#ffff',
+    borderRadius: 5,
+    width: 120,
+  }
 });

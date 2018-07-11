@@ -6,29 +6,29 @@ import renderer from 'react-test-renderer';
 import AddWorkout from '../containers/AddWorkout/AddWorkout';
 
 describe('AddWorkout Component', () => {
-  let rendered;
+  let wrapper;
 
   beforeEach(() => {
-    rendered = shallow(<AddWorkout/>);
+    wrapper = shallow(<AddWorkout/>);
   });
 
   it('should match the snapshot', () => {
-    rendered = renderer.create(<AddWorkout />).toJSON();
+    wrapper = renderer.create(<AddWorkout />).toJSON();
 
-    expect(rendered).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('workoutName and workoutDesc in state should start as empty strings', () =>{
     const expected = '';
 
-    expect(rendered.instance().state.workoutName).toEqual(expected);
-    expect(rendered.instance().state.workoutDesc).toEqual(expected);
+    expect(wrapper.instance().state.workoutName).toEqual(expected);
+    expect(wrapper.instance().state.workoutDesc).toEqual(expected);
   });
 
   it('exercises array in state should should be empty', () => {
     const expected = [];
 
-    expected(rendered.instance().state.exercises).toDeepEqual(expected);
+    expect(wrapper.instance().state.exercises).toEqual(expected);
   });
 
   it('handleInputChange should update state', () => {
