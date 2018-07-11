@@ -34,7 +34,8 @@ export default class AddWorkout extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#808080',
+    margin: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
