@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddWorkout Component should match the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#D3D3D3",
+      "borderRadius": 10,
+      "flex": 1,
+      "justifyContent": "center",
+      "marginLeft": 5,
+      "marginRight": 5,
+      "marginVertical": 20,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Add Workout
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Workout Name: 
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    style={
+      Object {
+        "backgroundColor": "#ffff",
+        "borderRadius": 5,
+        "width": 120,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Description (Optional):
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    style={
+      Object {
+        "backgroundColor": "#ffff",
+        "borderRadius": 5,
+        "width": 120,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Exercises
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    style={
+      Object {
+        "backgroundColor": "#ffff",
+        "borderRadius": 5,
+        "width": 120,
+      }
+    }
+  />
+</View>
+`;

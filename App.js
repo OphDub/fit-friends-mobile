@@ -9,13 +9,15 @@ import configureStore from './configureStore';
 const store = configureStore();
 
 import Home from './containers/Home/Home';
+import AddWorkout from './containers/AddWorkout/AddWorkout';
 import Team from './containers/Team/Team';
 import WorkoutHistory from './containers/WorkoutHistory/WorkoutHistory';
 
 const RouteConfig = {
-  Home: { screen: Home },
-  Team: { screen: Team },
-  WorkoutHistory: { screen: WorkoutHistory },
+  "Home": { screen: Home },
+  "Add Workout": { screen: AddWorkout },
+  "Team": { screen: Team },
+  "History": { screen: WorkoutHistory },
 };
 
 const BottomTabNavConfig = {
@@ -30,9 +32,11 @@ const BottomTabNavConfig = {
 
       if (routeName === 'Home') {
         iconName = `home`;
+      } else if (routeName === 'Add Workout') {
+        iconName = `add-circle`;
       } else if (routeName === 'Team') {
         iconName = `people`;
-      } else if (routeName === 'WorkoutHistory') {
+      } else if (routeName === 'History') {
         iconName = `history`;
       }
 
