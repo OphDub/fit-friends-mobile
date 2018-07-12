@@ -31,15 +31,11 @@ describe('AddWorkout Component', () => {
     expect(wrapper.instance().state.exercises).toEqual(expected);
   });
 
-  it('handleInputChange should update state', () => {
-
-  });
-
-  it('handleAddExercise should call exerciseCheck for form validation', () => {
-
-  });
-
   it('addExercise should update exercises in state', () => {
+
+  });
+
+  it('exerciseValidation should update error in state', () => {
 
   });
 
@@ -47,11 +43,11 @@ describe('AddWorkout Component', () => {
 
   });
 
-  it('handleSubmitWorkout should call workoutCheck for form validation', () => {
+  it('submitWorkout should clear state', () => {
 
   });
 
-  it('submitWorkout should clear state', () => {
+  it('validateWorkout should update error in state', () => {
 
   });
 });
