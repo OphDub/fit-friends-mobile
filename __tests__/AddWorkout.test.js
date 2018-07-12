@@ -31,8 +31,20 @@ describe('AddWorkout Component', () => {
     expect(wrapper.instance().state.exercises).toEqual(expected);
   });
 
-  it('addExercise should update exercises in state', () => {
+  it('addExercise should update exercises, exerciseName, and reps in state', () => {
+    const mockExercise = { name: 'push ups', reps: '10' };
+    const expectedExercises = [ mockExercise ];
+    const expectedString = '';
 
+    wrapper.instance().setState({
+      exerciseName: mockExercise.name,
+      reps: mockExercise.reps,
+    });
+    wrapper.instance().addExercise();
+
+    expect(wrapper.instance().state.exercises).toEqual(expectedExercises);
+    expect(wrapper.instance().state.exerciseName).toEqual(expectedString);
+    expect(wrapper.instance().state.reps).toEqual(expectedString);
   });
 
   it('exerciseValidation should update error in state', () => {

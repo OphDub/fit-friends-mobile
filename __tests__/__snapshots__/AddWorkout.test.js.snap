@@ -31,6 +31,8 @@ exports[`AddWorkout Component should match the snapshot 1`] = `
   </Text>
   <TextInput
     allowFontScaling={true}
+    keyboardAppearance="dark"
+    onChangeText={[Function]}
     style={
       Object {
         "backgroundColor": "#ffff",
@@ -38,6 +40,7 @@ exports[`AddWorkout Component should match the snapshot 1`] = `
         "width": 120,
       }
     }
+    value=""
   />
   <Text
     accessible={true}
@@ -48,6 +51,8 @@ exports[`AddWorkout Component should match the snapshot 1`] = `
   </Text>
   <TextInput
     allowFontScaling={true}
+    keyboardAppearance="dark"
+    onChangeText={[Function]}
     style={
       Object {
         "backgroundColor": "#ffff",
@@ -55,16 +60,26 @@ exports[`AddWorkout Component should match the snapshot 1`] = `
         "width": 120,
       }
     }
+    value=""
   />
   <Text
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
   >
-    Exercises
+    Exercises:
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Exercise Name:
   </Text>
   <TextInput
     allowFontScaling={true}
+    keyboardAppearance="dark"
+    onChangeText={[Function]}
     style={
       Object {
         "backgroundColor": "#ffff",
@@ -72,6 +87,62 @@ exports[`AddWorkout Component should match the snapshot 1`] = `
         "width": 120,
       }
     }
+    value=""
   />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Reps:
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    keyboardAppearance="dark"
+    keyboardType="number-pad"
+    onChangeText={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#ffff",
+        "borderRadius": 5,
+        "width": 120,
+      }
+    }
+    value=""
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#ffff",
+        "padding": 10,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={null}
+    >
+      Add Exercise
+    </Text>
+  </View>
 </View>
 `;

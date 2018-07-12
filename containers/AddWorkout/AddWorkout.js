@@ -4,6 +4,7 @@ import {
   Text,
   View,
   TextInput,
+  TouchableHighlight,
 } from 'react-native';
 
 export default class AddWorkout extends Component {
@@ -16,6 +17,20 @@ export default class AddWorkout extends Component {
       reps: '',
       exercises: []
     };
+  }
+
+  addExercise = () => {
+    const { exerciseName, reps, exercises } = this.state;
+    const newExercise = {
+      name: exerciseName,
+      reps
+    };
+
+    this.setState({
+      exercises: [ ...exercises, newExercise ],
+      exerciseName: '',
+      reps: ''
+    });
   }
 
   render() {
@@ -36,7 +51,7 @@ export default class AddWorkout extends Component {
             keyboardAppearance={'dark'}
             onChangeText={(workoutDesc) => this.setState({ workoutDesc })}
           />
-        <Text>Add Exercise:</Text>
+        <Text>Exercises:</Text>
           <Text>Exercise Name:</Text>
           <TextInput
             style={styles.inputs}
@@ -52,6 +67,12 @@ export default class AddWorkout extends Component {
             keyboardType={'number-pad'}
             onChangeText={(reps) => this.setState({ reps })}
           />
+          <TouchableHighlight
+            style={styles.buttons}
+            onPress={this.addExercise}
+          >
+            <Text>Add Exercise</Text>
+          </TouchableHighlight>
       </View>
     )
   }
@@ -72,5 +93,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffff',
     borderRadius: 5,
     width: 120,
+  },
+  buttons: {
+    backgroundColor: '#ffff',
+    padding: 10,
   }
 });
