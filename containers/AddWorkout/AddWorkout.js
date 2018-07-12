@@ -12,6 +12,8 @@ export default class AddWorkout extends Component {
     this.state = {
       workoutName: '',
       workoutDesc: '',
+      exerciseName: '',
+      reps: '',
       exercises: []
     };
   }
@@ -21,11 +23,35 @@ export default class AddWorkout extends Component {
       <View style={styles.container}>
         <Text>Add Workout</Text>
         <Text>Workout Name: </Text>
-          <TextInput style={styles.inputs}></TextInput>
+          <TextInput
+            style={styles.inputs}
+            value={this.state.workoutName}
+            keyboardAppearance={'dark'}
+            onChangeText={(workoutName) => this.setState({ workoutName })}
+          />
         <Text>Description (Optional):</Text>
-          <TextInput style={styles.inputs}></TextInput>
-        <Text>Exercises</Text>
-          <TextInput style={styles.inputs}></TextInput>
+          <TextInput
+            style={styles.inputs}
+            value={this.state.workoutDesc}
+            keyboardAppearance={'dark'}
+            onChangeText={(workoutDesc) => this.setState({ workoutDesc })}
+          />
+        <Text>Add Exercise:</Text>
+          <Text>Exercise Name:</Text>
+          <TextInput
+            style={styles.inputs}
+            value={this.state.exerciseName}
+            keyboardAppearance={'dark'}
+            onChangeText={(exerciseName) => this.setState({ exerciseName })}
+          />
+          <Text>Reps:</Text>
+          <TextInput
+            style={styles.inputs}
+            value={this.state.reps}
+            keyboardAppearance={'dark'}
+            keyboardType={'number-pad'}
+            onChangeText={(reps) => this.setState({ reps })}
+          />
       </View>
     )
   }
