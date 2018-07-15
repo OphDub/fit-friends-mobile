@@ -75,6 +75,24 @@ export default class AddWorkout extends Component {
     )
   }
 
+  submitWorkout = () => {
+    const { workoutName, workoutDesc, exercises } = this.state;
+
+    const workout = Object.assign({
+      name: workoutName,
+      desc: workoutDesc,
+      exercises
+    });
+
+    this.setState({
+      workoutName: '',
+      workoutDesc: '',
+      exercises: [],
+      exerciseName: '',
+      reps: ''
+    });
+  }
+
   render() {
     return(
       <View style={styles.container}>
