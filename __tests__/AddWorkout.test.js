@@ -18,21 +18,24 @@ describe('AddWorkout Component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('workoutName and workoutDesc in state should start as empty strings', () =>{
-    const expected = '';
+  it('should start with an empty initial state', () =>{
+    const expectedString = '';
+    const expectedArray = [];
 
-    expect(wrapper.instance().state.workoutName).toEqual(expected);
-    expect(wrapper.instance().state.workoutDesc).toEqual(expected);
-  });
-
-  it('exercises array in state should should be empty', () => {
-    const expected = [];
-
-    expect(wrapper.instance().state.exercises).toEqual(expected);
+    expect(wrapper.instance().state.workoutName).toEqual(expectedString);
+    expect(wrapper.instance().state.workoutDesc).toEqual(expectedString);
+    expect(wrapper.instance().state.exerciseName).toEqual(expectedString);
+    expect(wrapper.instance().state.reps).toEqual(expectedString);
+    expect(wrapper.instance().state.exercises).toEqual(expectedArray);
+    expect(wrapper.instance().state.error).toEqual(expectedString);
   });
 
   it('addExercise should update exercises, exerciseName, and reps in state', () => {
-    const mockExercise = { name: 'push ups', reps: '10' };
+    const mockDateNow = () => {return 1531616558129}
+    const originalDateNow = Date.now;
+    Date.now = mockDateNow;
+
+    const mockExercise = { name: 'push ups', reps: '10', id: 1531616558129 };
     const expectedExercises = [ mockExercise ];
     const expectedString = '';
 
@@ -48,11 +51,23 @@ describe('AddWorkout Component', () => {
   });
 
   it('exerciseValidation should update error in state', () => {
+    const mockExercise = { name: 'push ups', reps: '' };
+    const expectedExercises = [];
+    const expectedError = 'Please give your exercise a rep count and name.';
 
+    wrapper.instance().setState({
+      exerciseName: mockExercise.name,
+      reps: mockExercise.reps,
+    });
+    wrapper.instance().addExercise();
+
+    expect(wrapper.instance().state.error).toEqual(expectedError);
+    expect(wrapper.instance().state.exercises).toEqual(expectedExercises);
   });
 
   it('removeExercise should update exercises in state', () => {
-
+    const mockExercise = { name: 'push ups', reps: '' };
+    const expectedExercises = [];
   });
 
   it('submitWorkout should clear state', () => {

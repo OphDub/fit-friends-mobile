@@ -5,6 +5,7 @@ import {
   View,
   TextInput,
   TouchableHighlight,
+  FlatList,
 } from 'react-native';
 
 export default class AddWorkout extends Component {
@@ -15,22 +16,54 @@ export default class AddWorkout extends Component {
       workoutDesc: '',
       exerciseName: '',
       reps: '',
-      exercises: []
+      exercises: [],
+      error: ''
     };
   }
 
   addExercise = () => {
-    const { exerciseName, reps, exercises } = this.state;
-    const newExercise = {
-      name: exerciseName,
-      reps
-    };
+    const { reps, exerciseName } = this.state;
+
+    if(!this.exerciseValidation()) {
+      return;
+    }
+
+    const id = Date.now();
+    const newExercise = Object.assign({ id, reps, name: exerciseName });
+    const exercises = [...this.state.exercises, newExercise];
 
     this.setState({
-      exercises: [ ...exercises, newExercise ],
-      exerciseName: '',
-      reps: ''
+      exercises,
+      reps: '',
+      exerciseName: ''
     });
+  }
+
+  exerciseValidation = () => {
+    const { reps, exerciseName } = this.state;
+
+    if (reps === '' || exerciseName === '') {
+      const error = 'Please give your exercise a rep count and name.';
+
+      this.setState({ error });
+      return false;
+    }
+
+    return true;
+  }
+
+  renderExercises = () => {
+    return (
+      <FlatList
+        data={this.state.exercises}
+        renderItem={ ({exercise}) =>
+          <TouchableHighlight>
+            <Text>{exercise.name}</Text>
+            <Text>{exercise.reps}</Text>
+          </TouchableHighlight>
+        }
+      />
+    )
   }
 
   render() {
@@ -72,6 +105,12 @@ export default class AddWorkout extends Component {
             onPress={this.addExercise}
           >
             <Text>Add Exercise</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.buttons}
+            onPress={this.addWorkout}
+          >
+            <Text>Add Workout</Text>
           </TouchableHighlight>
       </View>
     )
