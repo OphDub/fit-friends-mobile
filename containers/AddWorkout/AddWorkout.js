@@ -4,6 +4,8 @@ import {
   Text,
   View,
   TextInput,
+  TouchableHighlight,
+  FlatList,
 } from 'react-native';
 
 export default class AddWorkout extends Component {
@@ -14,8 +16,81 @@ export default class AddWorkout extends Component {
       workoutDesc: '',
       exerciseName: '',
       reps: '',
-      exercises: []
+      exercises: [],
+      error: ''
     };
+  }
+
+  addExercise = () => {
+    const { reps, exerciseName } = this.state;
+
+    if(!this.exerciseValidation()) {
+      return;
+    }
+
+    const id = Date.now();
+    const newExercise = Object.assign({ id, reps, name: exerciseName });
+    const exercises = [...this.state.exercises, newExercise];
+
+    this.setState({
+      exercises,
+      reps: '',
+      exerciseName: ''
+    });
+  }
+
+  exerciseValidation = () => {
+    const { reps, exerciseName } = this.state;
+
+    if (reps === '' || exerciseName === '') {
+      const error = 'Please give your exercise a rep count and name.';
+
+      this.setState({ error });
+      return false;
+    }
+
+    return true;
+  }
+
+  removeExercise = (id) => {
+    const { exercises } = this.state;
+    const filteredExercises = exercises.filter(exercise => exercise.id !== id);
+
+    this.setState({
+      exercises: filteredExercises
+    });
+  }
+
+  renderExercises = () => {
+    return (
+      <FlatList
+        data={this.state.exercises}
+        renderItem={ ({exercise}) =>
+          <TouchableHighlight>
+            <Text>{exercise.name}</Text>
+            <Text>{exercise.reps}</Text>
+          </TouchableHighlight>
+        }
+      />
+    )
+  }
+
+  submitWorkout = () => {
+    const { workoutName, workoutDesc, exercises } = this.state;
+
+    const workout = Object.assign({
+      name: workoutName,
+      desc: workoutDesc,
+      exercises
+    });
+
+    this.setState({
+      workoutName: '',
+      workoutDesc: '',
+      exercises: [],
+      exerciseName: '',
+      reps: ''
+    });
   }
 
   render() {
@@ -36,7 +111,7 @@ export default class AddWorkout extends Component {
             keyboardAppearance={'dark'}
             onChangeText={(workoutDesc) => this.setState({ workoutDesc })}
           />
-        <Text>Add Exercise:</Text>
+        <Text>Exercises:</Text>
           <Text>Exercise Name:</Text>
           <TextInput
             style={styles.inputs}
@@ -52,6 +127,18 @@ export default class AddWorkout extends Component {
             keyboardType={'number-pad'}
             onChangeText={(reps) => this.setState({ reps })}
           />
+          <TouchableHighlight
+            style={styles.buttons}
+            onPress={this.addExercise}
+          >
+            <Text>Add Exercise</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.buttons}
+            onPress={this.addWorkout}
+          >
+            <Text>Add Workout</Text>
+          </TouchableHighlight>
       </View>
     )
   }
@@ -72,5 +159,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffff',
     borderRadius: 5,
     width: 120,
+  },
+  buttons: {
+    backgroundColor: '#ffff',
+    padding: 10,
   }
 });
