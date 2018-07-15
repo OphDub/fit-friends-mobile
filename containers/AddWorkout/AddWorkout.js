@@ -52,6 +52,15 @@ export default class AddWorkout extends Component {
     return true;
   }
 
+  removeExercise = (id) => {
+    const { exercises } = this.state;
+    const filteredExercises = exercises.filter(exercise => exercise.id !== id);
+
+    this.setState({
+      exercises: filteredExercises
+    });
+  }
+
   renderExercises = () => {
     return (
       <FlatList

@@ -66,8 +66,16 @@ describe('AddWorkout Component', () => {
   });
 
   it('removeExercise should update exercises in state', () => {
-    const mockExercise = { name: 'push ups', reps: '' };
-    const expectedExercises = [];
+    const mockExercise1 = { name: 'push ups', reps: '10', id: 1531616558129 };
+    const mockExercise2 = { name: 'jumping jacks', reps: '10', id: 1531616558130 };
+    const mockExercises = [ mockExercise1, mockExercise2 ];
+    const expected = [ mockExercise1 ];
+    const mockExerciseId = 1531616558130;
+
+    wrapper.instance().setState({ exercises: mockExercises });
+    wrapper.instance().removeExercise(mockExerciseId);
+
+    expect(wrapper.instance().state.exercises).toEqual(expected);
   });
 
   it('submitWorkout should clear state', () => {
