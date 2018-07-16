@@ -31,7 +31,7 @@ describe('AddWorkout Component', () => {
   });
 
   it('addExercise should update exercises, exerciseName, and reps in state', () => {
-    const mockDateNow = () => {return 1531616558129}
+    const mockDateNow = () => { return 1531616558129 };
     const originalDateNow = Date.now;
     Date.now = mockDateNow;
 
@@ -52,17 +52,15 @@ describe('AddWorkout Component', () => {
 
   it('exerciseValidation should update error in state', () => {
     const mockExercise = { name: 'push ups', reps: '' };
-    const expectedExercises = [];
     const expectedError = 'Please give your exercise a rep count and name.';
 
     wrapper.instance().setState({
       exerciseName: mockExercise.name,
       reps: mockExercise.reps,
     });
-    wrapper.instance().addExercise();
+    wrapper.instance().exerciseValidation();
 
     expect(wrapper.instance().state.error).toEqual(expectedError);
-    expect(wrapper.instance().state.exercises).toEqual(expectedExercises);
   });
 
   it('removeExercise should update exercises in state', () => {
@@ -103,6 +101,16 @@ describe('AddWorkout Component', () => {
   });
 
   it('validateWorkout should update error in state', () => {
+    const mockExercise1 = { name: 'push ups', reps: '10', id: 1531616558129 };
+    const mockExercise2 = { name: 'jumping jacks', reps: '10', id: 1531616558130 };
+    const mockExercises = [ mockExercise1, mockExercise2 ];
+    const expected = 'Please give your workout a name.';
 
+    wrapper.setState({
+      exercises: mockExercises
+    });
+    wrapper.instance().validateWorkout();
+
+    expect(wrapper.instance().state.error).toEqual(expected);
   });
 });

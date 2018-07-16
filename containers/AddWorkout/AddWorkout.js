@@ -78,6 +78,10 @@ export default class AddWorkout extends Component {
   submitWorkout = () => {
     const { workoutName, workoutDesc, exercises } = this.state;
 
+    if(!this.validateWorkout()) {
+      return;
+    }
+
     const workout = Object.assign({
       name: workoutName,
       desc: workoutDesc,
@@ -91,6 +95,19 @@ export default class AddWorkout extends Component {
       exerciseName: '',
       reps: ''
     });
+  }
+
+  validateWorkout = () => {
+    const { workoutName } = this.state;
+
+    if (workoutName === '') {
+      const error = 'Please give your workout a name.';
+
+      this.setState({ error });
+      return false;
+    }
+
+    return true;
   }
 
   render() {
