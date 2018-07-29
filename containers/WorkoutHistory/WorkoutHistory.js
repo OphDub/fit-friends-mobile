@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
+  Platform,
 } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
@@ -62,6 +63,7 @@ export default class WorkoutHistory extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: Platform.OS == "ios" ? 20 : 0,
     backgroundColor: '#FFC0CB',
   },
 });

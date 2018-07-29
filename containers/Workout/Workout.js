@@ -15,8 +15,8 @@ export const Workout = ({navigation}) => {
 
   return(
     <View style={styles.container}>
-      <Text style={styles.workoutTitles}>{params.title}</Text>
-      <Text style={styles.workoutTitles}>{params.originator}</Text>
+      <Text style={styles.workoutTitles}>Originator:</Text>
+      <Text style={styles.workoutInfo}>{params.originator}</Text>
       <Text style={styles.workoutTitles}>Description:</Text>
       <Text style={styles.workoutInfo}>{params.desc}</Text>
       <Text style={styles.workoutTitles}>Exercises: </Text>
