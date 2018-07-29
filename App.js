@@ -11,13 +11,13 @@ const store = configureStore();
 import Home from './containers/Home/Home';
 import AddWorkout from './containers/AddWorkout/AddWorkout';
 import Team from './containers/Team/Team';
-import WorkoutHistory from './containers/WorkoutHistory/WorkoutHistory';
+import WorkoutStack from './nav/WorkoutStack';
 
 const RouteConfig = {
   "Home": { screen: Home },
   "Add Workout": { screen: AddWorkout },
   "Team": { screen: Team },
-  "History": { screen: WorkoutHistory },
+  "History": { screen: WorkoutStack },
 };
 
 const BottomTabNavConfig = {
