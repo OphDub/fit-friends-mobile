@@ -64,6 +64,6 @@ export default class WorkoutHistory extends Component {
 const styles = StyleSheet.create({
   container: {
     marginTop: Platform.OS == "ios" ? 20 : 0,
-    backgroundColor: '#FFC0CB',
+    backgroundColor: '#fff',
   },
 });
