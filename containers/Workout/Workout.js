@@ -15,13 +15,19 @@ export const Workout = ({navigation}) => {
 
   return(
     <View style={styles.container}>
-      <Text style={styles.workoutTitles}>Originator:</Text>
-      <Text style={styles.workoutInfo}>{params.originator}</Text>
-      <Text style={styles.workoutTitles}>Description:</Text>
-      <Text style={styles.workoutInfo}>{params.desc}</Text>
-      <Text style={styles.workoutTitles}>Exercises: </Text>
-      <View>
-        {exerciseList}
+      <View style={styles.sections}>
+        <Text style={styles.workoutTitles}>Originator:</Text>
+        <Text style={styles.workoutInfo}>{params.originator}</Text>
+      </View>
+      <View style={styles.sections}>
+        <Text style={styles.workoutTitles}>Description:</Text>
+        <Text style={styles.workoutInfo}>{params.desc}</Text>
+      </View>
+      <View style={styles.sections}>
+        <Text style={styles.workoutTitles}>Exercises: </Text>
+        <View>
+          {exerciseList}
+        </View>
       </View>
     </View>
   )
@@ -29,10 +35,17 @@ export const Workout = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#00FFFF',
+    flex: 1,
+    backgroundColor: '#FFF',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     padding: 5,
+    paddingTop: 15,
+  },
+  sections: {
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    marginBottom: 10,
   },
   workoutTitles: {
     fontWeight: "bold",
